@@ -1,13 +1,14 @@
 import React from "react";
 import "./Home.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Profile from "../assets/Capture.png";
 
 export const Home = () => {
   return (
     <section className="home-container">
       <div className="home-left">
         <div className="profile-circle">
-          <img src="" alt="Profile" className="profile-picture" />
+          <img src={Profile} alt="Profile" className="profile-picture" />
         </div>
       </div>
       <div className="home-right">
