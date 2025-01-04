@@ -1,12 +1,10 @@
-body {
-  overflow: hidden;
-}
 /** Home container */
 .home-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 2rem;
+  overflow: hidden;
 }
 
 /** Right section styling */
@@ -69,18 +67,6 @@ body {
   background-color: lightpink;
 }
 
-/** Animation to make circles appear from the bottom */
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 /** css for home */
 .home-content {
   text-align: left;
@@ -117,6 +103,9 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  opacity: 0; /* Start hidden */
+  transform: scale(0.8); /* Start smaller */
+  animation: fadeInZoom 1s ease-out forwards;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -126,7 +115,19 @@ body {
   object-fit: cover;
 }
 
-/* Typing effect */
+/** Profile Picture Animation  */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/** Typing effect */
 .typing-effect {
   display: inline-block;
   white-space: nowrap;
@@ -149,5 +150,17 @@ body {
   }
   to {
     border-right-color: purple;
+  }
+}
+
+/** Animation to make circles appear from the bottom */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

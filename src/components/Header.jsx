@@ -14,12 +14,15 @@ export const Header = () => {
         <NavLink to="/" className="header-link">
           Home
         </NavLink>
+        |
         <NavLink to="/About" className="header-link">
           About
         </NavLink>
+        |
         <NavLink to="/Project" className="header-link">
           Project
         </NavLink>
+        |
         <NavLink to="/Contact" className="header-link">
           Contact
         </NavLink>
