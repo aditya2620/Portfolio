@@ -1,0 +1,152 @@
+body {
+  overflow: hidden;
+}
+/** Home container */
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+
+/** Right section styling */
+.home-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.circle-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.3s, background-color 0.3s;
+  animation: slideUp 1s ease-out forwards;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Circle sizes and colors */
+.circle1 {
+  width: 180px;
+  height: 180px;
+  background-color: #ff6b6b;
+  animation-delay: 0s;
+}
+
+.circle2 {
+  width: 180px;
+  height: 180px;
+  background-color: #1dd1a1;
+  animation-delay: 0.2s;
+}
+
+.circle3 {
+  width: 180px;
+  height: 180px;
+  background-color: #e4a722;
+  animation-delay: 0.4s;
+}
+
+.circle span {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.circle:hover {
+  transform: scale(0.9);
+  background-color: lightpink;
+}
+
+/** Animation to make circles appear from the bottom */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/** css for home */
+.home-content {
+  text-align: left;
+}
+
+.home-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: purple;
+  margin-bottom: 1rem;
+}
+
+.home-description {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/** left section styling */
+.home-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Typing effect */
+.typing-effect {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 1s steps(10, end), blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-right-color: transparent;
+  }
+  to {
+    border-right-color: purple;
+  }
+}

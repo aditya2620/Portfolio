@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background-color: #cebcfe;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 25%; /* Makes the image circular */
+  background-color: black;
+}
+
+.header-title {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.header-logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header-link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.header-link:hover {
+  color: #007bff;
+}
+
+.header-link.active {
+  color: purple; /* Highlight the active link */
+  font-weight: bold;
+}
