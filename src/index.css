@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Outfit', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -7,5 +9,48 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* CSS Variable Definitions for Themes */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-header: rgba(167, 139, 250, 0.75);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-color: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-rgb: 139, 92, 246;
+  --border-color: #e2e8f0;
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s;
 }
+
+:root.dark {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #161e31;
+  --bg-header: rgba(22, 30, 49, 0.8);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-color: #a78bfa;
+  --accent-hover: #c084fc;
+  --accent-rgb: 167, 139, 250;
+  --border-color: #243049;
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
 
