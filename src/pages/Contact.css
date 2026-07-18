@@ -170,6 +170,56 @@
   display: block;
 }
 
+/* Contact Divider styles */
+.contact-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted);
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.contact-divider::before,
+.contact-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.contact-divider:not(:empty)::before {
+  margin-right: 1em;
+}
+
+.contact-divider:not(:empty)::after {
+  margin-left: 1em;
+}
+
+/* Email Direct Button styles */
+.email-direct-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px dashed var(--border-color);
+  padding: 0.85rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+}
+
+.email-direct-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background-color: rgba(var(--accent-rgb), 0.05);
+}
+
 @media (max-width: 640px) {
   .contact-container {
     padding: 1rem;

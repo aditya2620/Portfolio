@@ -3,6 +3,8 @@ import "./Contact.css";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const EMAIL_ADDRESS = "adityabasanti02@gmail.com";
+
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({ email: "" });
@@ -35,12 +37,30 @@ export const Contact = () => {
 
     setIsSubmitting(true);
 
-    // Simulate sending API request
+    // Construct pre-filled email components
+    const subject = encodeURIComponent(`Portfolio Message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Hi Aditya,\n\n${formData.message}\n\n---\nMessage sent via DevStudio Portfolio.\nSender Name: ${formData.name}\nSender Email: ${formData.email}`
+    );
+
+    // Detect if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Trigger native email client on mobile
+      window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+    } else {
+      // Open Gmail webmail editor in a new browser tab on desktop
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}&su=${subject}&body=${body}`;
+      window.open(gmailUrl, "_blank");
+    }
+
+    // Mark as submitted to trigger the overlay checkmark
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-    }, 1500);
+    }, 1000);
   };
 
   const isFormValid = formData.name && formData.email && formData.message && !errors.email;
@@ -71,9 +91,9 @@ export const Contact = () => {
               <div className="success-icon-container">
                 <CheckCircle size={40} />
               </div>
-              <h3 className="success-title">Message Sent!</h3>
+              <h3 className="success-title">Mail Client Opened!</h3>
               <p className="success-msg">
-                Thank you for reaching out. I'll get back to you as soon as possible!
+                Your email client was opened with a pre-filled draft. Please send the email to finish reaching out!
               </p>
               <motion.button
                 onClick={() => setIsSubmitted(false)}
@@ -148,7 +168,7 @@ export const Contact = () => {
             whileHover={isFormValid ? { scale: 1.02 } : {}}
             whileTap={isFormValid ? { scale: 0.98 } : {}}
           >
-            <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+            <span>{isSubmitting ? "Opening Mail..." : "Send Message"}</span>
             <Send size={18} />
           </motion.button>
         </form>
